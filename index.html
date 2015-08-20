@@ -55,6 +55,7 @@
 			}
 			
 			$(document).ready(function(){
+				var audioElement = null;
 				$(".text").click(function(){
 				
 					$('#dick').animate({
@@ -73,15 +74,15 @@
 
 						var width = $(window).width();
 						var height = $(document).height();
-						
-						var audioElement = document.createElement('audio');
-						audioElement.setAttribute('src', 'dickbutt.mp3');
-						audioElement.setAttribute('autoplay', 'autoplay');
-						$.get();
-						audioElement.addEventListener("load", function() {
-							audioElement.play();
-						}, true);						
-						
+						if(audioElement==null){
+							audioElement = document.createElement('audio');
+							audioElement.setAttribute('src', 'dickbutt.mp3');
+							audioElement.setAttribute('autoplay', 'autoplay');
+							$.get();
+							audioElement.addEventListener("load", function() {
+								audioElement.play();
+							}, true);						
+						}
 						setInterval(
 							function(){
 								$('#dickbutt')
