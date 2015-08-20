@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>click button</title>
+		<link rel="shortcut icon" href="trollface.gif">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<style>
+			html, body{
+				margin:  0 auto;
+				height: 100%;
+			}
+			.body{
+				height: 100%;
+			}
+			.body > .button{
+				min-width: 400px;
+				max-width: 700px;
+				margin: 0 auto;
+				position: relative;
+				top: 20%;
+				font-family: Geneva, Arial, Helvetica, sans-serif;
+			}
+			.body > .button > .text{
+				color: white;
+				font-size: 100px;
+				margin: 0 auto;
+				padding: 40px;
+				border-radius: 30px;
+				background-color: #4D7CFF;
+				text-align: center;
+			}
+			.body > .button > .text:hover{
+				cursor: pointer;
+				background-color: #2B458F;
+			}
+			#dick{
+				position: relative;
+				left: -50px;
+			}
+			#first-letter{
+				position: relative;
+				left: 0;
+			}
+			#butt{
+				position: relative;
+				left: -30px;
+			}
+			#on{
+				position: absolute;
+				left: 165px;
+			}
+		</style>
+		<script>
+			function getRandomInt(min, max){
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			
+			$(document).ready(function(){
+				$(".text").click(function(){
+				
+					$('#dick').animate({
+						left: '-20px'
+					}, 2000);
+					
+					$('#butt').animate({
+						left: '-50px'
+					}, 2000);
+					
+					$('#on').fadeOut(2000);
+					
+					$('#first-letter').animate({
+						left: '16px'
+					}, 2000, function(){
+
+						var width = $(window).width();
+						var height = $(document).height();
+						
+						var audioElement = document.createElement('audio');
+						audioElement.setAttribute('src', 'dickbutt.mp3');
+						audioElement.setAttribute('autoplay', 'autoplay');
+						$.get();
+						audioElement.addEventListener("load", function() {
+							audioElement.play();
+						}, true);						
+						
+						setInterval(
+							function(){
+								$('#dickbutt')
+									.clone()
+									.appendTo(".body")
+									.css({
+										display: 'inline',
+										position: 'absolute',
+										left: getRandomInt(0, width-200) + "px",
+										top: getRandomInt(0, height-200) + "px"
+									});
+								},300);
+						
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="body">
+			<div class="button">
+				<div class="text">
+					<span id="dick"><span id="first-letter">c</span>lick</span> <span id="butt">butt<span id="on">on</span></span>
+				</div>	
+			</div>
+		</div>
+		
+		<img id="dickbutt" src="dickbutt.png" style="display: none;"/>
+	</body>
+</html>
